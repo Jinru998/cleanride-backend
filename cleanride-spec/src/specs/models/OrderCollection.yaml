@@ -1,0 +1,19 @@
+  type: object
+  description: a order collection
+  required:
+    - items
+  properties:
+    items:
+      type: array
+      description: list of orders
+      items:
+        $ref: './OrderDetail.yaml'
+    offset:
+      type: integer
+      description: current offset
+    limit:
+      type: integer
+      description: current limit
+    totalResults:
+      type: integer
+      description: total number of results

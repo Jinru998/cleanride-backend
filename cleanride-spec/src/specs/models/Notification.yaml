@@ -1,0 +1,32 @@
+  type: object
+  description: The notification object
+  properties:
+    id:
+      type: string
+      description: "Notification ID"
+    type:
+      type: string
+      description: "Type of notification"
+    channel:
+      type: string
+      description: "Notification channel (Email, SMS, etc.)"
+    recipient:
+      type: string
+      description: "Recipient's info"
+    subject:
+      type: string
+      description: "Notification subject"
+    message:
+      type: string
+      description: "Notification message"
+    status:
+      type: string
+      description: "Notification status"
+    sentAt:
+      type: string
+      format: date-time
+      description: "When notification was sent"
+    createdAt:
+      type: string
+      format: date-time
+      description: "Notification createdAt"

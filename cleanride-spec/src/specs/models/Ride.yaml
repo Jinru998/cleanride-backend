@@ -1,0 +1,30 @@
+  type: object
+  description: The ride object
+  properties:
+    id:
+      type: string
+      description: "Ride ID"
+    rideType:
+      type: string
+      description: "Pickup, dropoff, etc."
+    uberRideId:
+      type: string
+      description: "Uber ride ID"
+    status:
+      type: string
+      description: "Ride status"
+    scheduledTime:
+      type: string
+      format: date-time
+      description: "Scheduled ride time"
+    createdAt:
+      type: string
+      format: date-time
+      description: "Ride createdAt"
+    updatedAt:
+      type: string
+      format: date-time
+      description: "Ride updatedAt"
+    address:
+      type: string
+      description: "Ride address or location"

@@ -1,0 +1,26 @@
+  type: object
+  description: The user object
+  properties:
+    id:
+      type: string
+      description: User ID
+    email:
+      type: string
+      description: "User email address"
+    phoneNumber:
+      type: string
+      description: "User phone number"
+    firebaseId:
+      type: string
+      description: "Firebase ID if any"
+    address:
+      type: string
+      description: "User address"
+    createdAt:
+      type: string
+      format: date-time
+      description: "User createdAt"
+    updatedAt:
+      type: string
+      format: date-time
+      description: "User updatedAt"

@@ -1,0 +1,24 @@
+  type: object
+  description: The payment object
+  properties:
+    id:
+      type: string
+      description: "Payment ID"
+    status:
+      type: string
+      description: "Payment status"
+    amount:
+      type: number
+      format: double
+      description: "Payment amount"
+    createdAt:
+      type: string
+      format: date-time
+      description: "Payment createdAt"
+    updatedAt:
+      type: string
+      format: date-time
+      description: "Payment updatedAt"
+    stripeChargeId:
+      type: string
+      description: "Stripe charge ID"

@@ -1,0 +1,40 @@
+  type: object
+  description: order
+  properties:
+    id:
+      type: string
+      description: "Unique identifier for the order detail"
+    status:
+      type: string
+      description: "Order Status"
+    updatedAt:
+      type: string
+      format: date-time
+      description: "Order updatedAt"
+    createdAt:
+      type: string
+      format: date-time
+      description: "Order createdAt"
+    user:
+      type: object
+      $ref: './User.yaml'
+      description: "User entity"
+    payment:
+      type: object
+      $ref: './Payment.yaml'
+      description: "Payment entity"
+    ride:
+      type: array
+      description: "List of rides"
+      items:
+        $ref: './Ride.yaml'
+    notification:
+      type: array
+      description: "List of notifications"
+      items:
+        $ref: './Notification.yaml'
+    orderStatuses:
+      type: array
+      description: "List of order statuses"
+      items:
+        $ref: './OrderStatus.yaml'

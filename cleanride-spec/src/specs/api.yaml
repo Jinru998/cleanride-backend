@@ -1,0 +1,133 @@
+  openapi: 3.0.0
+  info:
+    title: CleanRide API
+    version: "1.0.0"
+  servers:
+    - url: http://127.0.0.1/cleanride/api/v1
+  paths:
+    /orders:
+      get:
+        summary: "Retrieve order collection"
+        operationId: "getOrders"
+        parameters:
+          - $ref: '#/components/parameters/offsetParam'
+          - $ref: '#/components/parameters/limitParam'
+
+        responses:
+          "200":
+            description: A JSON array of user names
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/OrderCollection'
+          "400":
+            $ref: '#/components/responses/400'
+          "401":
+            $ref: '#/components/responses/401'
+          "500":
+            $ref: '#/components/responses/500'
+          default:
+            $ref: '#/components/responses/default'
+  components:
+    schemas:
+      OrderCollection:
+        $ref: './models/OrderCollection.yaml'
+      OrderDetail:
+        $ref: './models/OrderDetail.yaml'
+      OrderStatus:
+        $ref: './models/OrderStatus.yaml'
+      User:
+        $ref: './models/User.yaml'
+      Payment:
+        $ref: './models/Payment.yaml'
+      Ride:
+        $ref: './models/Ride.yaml'
+      Notification:
+        $ref: './models/Notification.yaml'
+      Error: # Can be referenced as '#/components/schemas/Error'
+        type: object
+        properties:
+          code:
+            type: integer
+          message:
+            type: string
+
+    parameters:
+      offsetParam: # Can be referenced via '#/components/parameters/offsetParam'
+        name: offset
+        in: query
+        description: Number of items to skip before returning the results.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          minimum: 0
+          default: 0
+
+      limitParam: # Can be referenced as '#/components/parameters/limitParam'
+        name: limit
+        in: query
+        description: Maximum number of items to return.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 100
+          default: 20
+
+    responses:
+      400:
+        description: Bad Request
+        content: # Important: Add content for responses
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+      401:
+        description: Unauthorized
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+      404:
+        description: Not Found
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+      405:
+        description: Method Not Allowed
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+      409:
+        description: Conflict
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+      412:
+        description: Precondition Failed
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+      420:
+        description: Too Many Requests
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+      500:
+        description: Internal Server Error
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"
+      default:
+        description: Unknown Error # Use a more specific name than "default"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Error"

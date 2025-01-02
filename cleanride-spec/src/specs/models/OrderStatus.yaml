@@ -1,0 +1,16 @@
+  type: object
+  description: The order status object
+  properties:
+    id:
+      type: string
+      description: "OrderStatus ID"
+    newStatus:
+      type: string
+      description: "New status of the order"
+    previousStatus:
+      type: string
+      description: "Previous status of the order"
+    createdAt:
+      type: string
+      format: date-time
+      description: "When this status record was created"
